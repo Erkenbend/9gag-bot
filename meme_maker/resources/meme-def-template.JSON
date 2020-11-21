@@ -14,7 +14,7 @@
         "pos": [BOTTOM_X, BOTTOM_Y],
         "dimensions": [BOTTOM_BOX_SIZE, 200],
         "font": "impact.ttf",
-        "font_size": 72,
+        "font_size": 50,
         "text_color": TEXT_COLOR,
         "centering": ["True", "True"]
       }

@@ -11,10 +11,10 @@
         "centering": ["True", "True"]
       },
       {
-        "pos": [-92, 600.0],
-        "dimensions": [900, 200],
+        "pos": [-142, 600.0],
+        "dimensions": [1000, 200],
         "font": "impact.ttf",
-        "font_size": 72,
+        "font_size": 50,
         "text_color": [255, 255, 255],
         "centering": ["True", "True"]
       }
