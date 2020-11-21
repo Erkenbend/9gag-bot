@@ -4,6 +4,12 @@ import json
 import requests
 from meme_maker.make_meme import make_meme
 
+from meme_maker.make_meme import make_meme
+
+make_meme('2000-02-28', '2000-05-06', '../meme_maker/resources/ImageLibrary/dead_person.jpg')
+
+exit(123)
+
 class DeadPerson:
     def __init__(self, dday, name, wiki_url, text_length, img_url, bday):
         self.dday = dday
