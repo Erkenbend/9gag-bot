@@ -4,11 +4,6 @@ import json
 import requests
 from meme_maker.make_meme import make_meme
 
-from meme_maker.make_meme import make_meme
-
-make_meme('2000-02-28', '2000-05-06', '../meme_maker/resources/ImageLibrary/dead_person.jpg')
-
-exit(123)
 
 class DeadPerson:
     def __init__(self, dday, name, wiki_url, text_length, img_url, bday):
@@ -79,6 +74,7 @@ r = requests.get(my_d_person.img_url, allow_redirects=True)
 img_path = "..\\meme_maker\\resources\\ImageLibrary\\dead_person.jpg"
 
 open(img_path, 'wb').write(r.content)
+print("downloaded file. now start making meme")
 
 make_meme(my_d_person.bday, my_d_person.dday, img_path)
 
