@@ -38,6 +38,10 @@ while nb_tries < 5:
         nb_tries += 1
         browser.refresh()
 
+# Get credentials
+with open('./resources/credentials.txt') as f:
+    username, password = f.readlines()[0].split(':', 1)
+
 # Log in
 login_button = browser.find_element_by_link_text('Log in')
 login_button.click()
@@ -45,15 +49,15 @@ login_button.click()
 login_form = browser.find_element_by_id('login-email')
 
 email_field = login_form.find_element_by_id('login-email-name')
-email_field.send_keys('pupsmaschine5@gmail.com')  # TODO: get from file
+email_field.send_keys(username)
 pw_field = login_form.find_element_by_id('login-email-password')
-pw_field.send_keys('Test1234+')  # TODO: get from file
+pw_field.send_keys(password)
 
 login_form.submit()
 
 # Upload file
 time.sleep(2)
-upload_button_candidates = browser.find_elements_by_class_name('btn-primary')  # .click()
+upload_button_candidates = browser.find_elements_by_class_name('btn-primary')
 for button in upload_button_candidates:
     # print(button)
     if button.text == 'Upload':
