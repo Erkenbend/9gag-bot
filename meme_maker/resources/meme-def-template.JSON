@@ -1,0 +1,23 @@
+{
+  "DeadPerson": {
+    "filename": "dead_person.jpg",
+    "text_zones": [
+      {
+        "pos": [TOP_X, TOP_Y],
+        "dimensions": [TOP_BOX_SIZE, 0],
+        "font": "impact.ttf",
+        "font_size": 72,
+        "text_color": TEXT_COLOR,
+        "centering": ["True", "True"]
+      },
+      {
+        "pos": [BOTTOM_X, BOTTOM_Y],
+        "dimensions": [BOTTOM_BOX_SIZE, 200],
+        "font": "impact.ttf",
+        "font_size": 72,
+        "text_color": TEXT_COLOR,
+        "centering": ["True", "True"]
+      }
+    ]
+  }
+}
