@@ -2,8 +2,7 @@ import datetime
 from pyquery import PyQuery
 import json
 import requests
-from meme_maker.make_meme import make_meme
-
+from make_meme import make_meme
 
 class DeadPerson:
     def __init__(self, dday, name, wiki_url, text_length, img_url, bday):
@@ -71,11 +70,12 @@ print(dead_persons[0].__dict__)
 
 my_d_person = dead_persons[0]
 r = requests.get(my_d_person.img_url, allow_redirects=True)
-img_path = "..\\meme_maker\\resources\\ImageLibrary\\dead_person.jpg"
+img_path = "./resources/ImageLibrary/dead_person.jpg"
 
 open(img_path, 'wb').write(r.content)
 print("downloaded file. now start making meme")
 
-make_meme(my_d_person.bday, my_d_person.dday, img_path)
+#make_meme(str(my_d_person.bday), str(my_d_person.dday), img_path)
+make_meme('2000-02-28', '2000-05-05', './resources/ImageLibrary/dead_person.jpg')
 
 print("Finished")

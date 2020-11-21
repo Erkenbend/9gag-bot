@@ -10,7 +10,7 @@ def make_meme(birth_date, death_date, image_path):
     width, height = im.size
     #print(width, height)
 
-    with open('../meme-def-template.JSON', 'r') as f:
+    with open('./meme-def-template.JSON', 'r') as f:
         lines_with_placeholders = f.readlines()
 
     nb_pos_encounters = 0
@@ -38,10 +38,10 @@ def make_meme(birth_date, death_date, image_path):
 
     # print(lines_to_export)
 
-    with open('../meme_maker/resources/MemeLibrary/meme-def.json', 'w') as f:
+    with open('./resources/MemeLibrary/meme-def.json', 'w') as f:
         f.writelines(lines_to_export)
 
-    mp.add_external_resource_dir('../meme_maker/resources')
+    mp.add_external_resource_dir('./resources')
     mp.save_meme_to_disk('DeadPerson', '.', ['R.I.P.', birth_date + '\n' + death_date + ' '])
 
 if __name__ == '__main__':
