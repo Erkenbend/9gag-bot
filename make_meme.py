@@ -8,6 +8,7 @@ TEXT_COLOR = [255, 255, 255]
 def make_meme(birth_date, death_date, image_path):
     im = Image.open(image_path)
     width, height = im.size
+    im.convert("RGB").save(image_path)
     #print(width, height)
 
     with open('./meme-def-template.JSON', 'r') as f:

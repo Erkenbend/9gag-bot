@@ -39,26 +39,32 @@ def wiki_search(today):
 
         if len(links) >= 2:
             year = links[0].text_content()
-            try:
-                if int(year) >= 1990:
-                    dday = f"{year}-{today.strftime('%m')}-{day}"
-                    name = links[1].text_content()
-                    p_url = f"https://en.wikipedia.org{links[1].attrib.get('href')}"
-                    print(p_url)
-                    p_site = PyQuery(p_url)
-                    text_length = len(p_site.text())  # => costs time
-                    img_site = f'https://en.wikipedia.org{p_site.find("table.infobox.vcard").find("a")[0].attrib.get("href")}'
+            name = links[1].text_content()
+            p_url = f"https://en.wikipedia.org{links[1].attrib.get('href')}"
+        else:
+            year = child.text_content().split('–', 1)[0]
+            name = links[0].text_content()
+            p_url = f"https://en.wikipedia.org{links[0].attrib.get('href')}"
+        try:
+            if int(year) >= 1990:
+                dday = f"{year}-{today.strftime('%m')}-{day}"
+                print(p_url)
+                p_site = PyQuery(p_url)
+                text_length = len(p_site.text())  # => costs time
+                img_site = f'https://en.wikipedia.org{p_site.find("table.infobox.vcard").find("a")[0].attrib.get("href")}'
 
-                    img_url = PyQuery(img_site).find("div#file").find("a")[0].attrib.get("href")
-                    img_url = f'https:{img_url}'
-                    print(img_url)
+                img_url = PyQuery(img_site).find("div#file").find("a")[0].attrib.get("href")
+                img_url = f'https:{img_url}'
+                print(img_url)
 
-                    bday = p_site.find("table.infobox.vcard").find("span.bday")[0].text
-                    dead_persons.append(DeadPerson(dday, name, p_url, text_length, img_url, bday))
-            except ValueError:
-                continue
-            except IndexError:
-                continue
+                bday = p_site.find("table.infobox.vcard").find("span.bday")[0].text
+                dead_persons.append(DeadPerson(dday, name, p_url, text_length, img_url, bday))
+        except ValueError as ve:
+            # print(ve)
+            continue
+        except IndexError as ie:
+            # print(ie)
+            continue
 
     print("parsed all dead persons")
 

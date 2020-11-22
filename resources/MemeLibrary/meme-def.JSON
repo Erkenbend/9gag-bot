@@ -3,7 +3,7 @@
     "filename": "dead_person.jpg",
     "text_zones": [
       {
-        "pos": [434, 73],
+        "pos": [41, 25],
         "dimensions": [200, 0],
         "font": "impact.ttf",
         "font_size": 72,
@@ -11,7 +11,7 @@
         "centering": ["True", "True"]
       },
       {
-        "pos": [34, 1098.0],
+        "pos": [-359, 377.0],
         "dimensions": [1000, 200],
         "font": "impact.ttf",
         "font_size": 50,

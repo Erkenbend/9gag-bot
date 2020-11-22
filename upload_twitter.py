@@ -1,9 +1,8 @@
-#import twitter
 import tweepy
 
 from yaml import safe_load
 
-def upload_twitter():
+def upload_twitter(person_name):
 
     # re-authenticate
     with open('./resources/twitter_credentials.yml', 'r') as f:
@@ -19,7 +18,7 @@ def upload_twitter():
 
     # post stuff
     media_obj = api.media_upload("./meme.png")
-    api.update_status(status='Test test test', media_ids=[media_obj.media_id])
+    api.update_status(status=f'Remember {person_name} #rip', media_ids=[media_obj.media_id])
 
 if __name__ == '__main__':
     upload_twitter()
