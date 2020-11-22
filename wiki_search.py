@@ -20,7 +20,7 @@ class JsonWrapper:
 # build wiki url
 today = datetime.datetime.now()
 month = today.strftime("%B")
-day = int(today.strftime("%d")) + 1
+day = int(today.strftime("%d"))
 url = f"https://en.wikipedia.org/wiki/{month}_{day}#Deaths"
 print(url)
 
@@ -76,6 +76,6 @@ open(img_path, 'wb').write(r.content)
 print("downloaded file. now start making meme")
 
 #make_meme(str(my_d_person.bday), str(my_d_person.dday), img_path)
-make_meme('2000-02-28', '2000-05-05', './resources/ImageLibrary/dead_person.jpg')
+#make_meme('2000-02-28', '2000-05-05', './resources/ImageLibrary/dead_person.jpg')
 
 print("Finished")
