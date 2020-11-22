@@ -136,3 +136,4 @@ dmypy.json
 **/credentials.txt
 **/geckodriver.log
 **/twitter_credentials.yml
+**/twitter_oauth_credentials.yml
