@@ -3,18 +3,23 @@ import tweepy
 
 from yaml import safe_load
 
-# re-authenticate
-with open('./resources/twitter_credentials.yml', 'r') as f:
-    twitter_credentials = safe_load(f)
-auth = tweepy.OAuthHandler(twitter_credentials['API-KEY'], twitter_credentials['API-SECRET-KEY'])
+def upload_twitter():
 
-with open('./resources/twitter_oauth_credentials.yml', 'r') as f:
-    twitter_oauth_credentials = safe_load(f)
-auth.set_access_token(twitter_oauth_credentials['OAUTH-ACCESS-TOKEN'], twitter_oauth_credentials['OAUTH-ACCESS-TOKEN-SECRET'])
+    # re-authenticate
+    with open('./resources/twitter_credentials.yml', 'r') as f:
+        twitter_credentials = safe_load(f)
+    auth = tweepy.OAuthHandler(twitter_credentials['API-KEY'], twitter_credentials['API-SECRET-KEY'])
 
-# init api
-api = tweepy.API(auth)
+    with open('./resources/twitter_oauth_credentials.yml', 'r') as f:
+        twitter_oauth_credentials = safe_load(f)
+    auth.set_access_token(twitter_oauth_credentials['OAUTH-ACCESS-TOKEN'], twitter_oauth_credentials['OAUTH-ACCESS-TOKEN-SECRET'])
 
-# post stuff
-media_obj = api.media_upload("./meme.png")
-api.update_status(status='Test test test', media_ids=[media_obj.media_id])
+    # init api
+    api = tweepy.API(auth)
+
+    # post stuff
+    media_obj = api.media_upload("./meme.png")
+    api.update_status(status='Test test test', media_ids=[media_obj.media_id])
+
+if __name__ == '__main__':
+    upload_twitter()
