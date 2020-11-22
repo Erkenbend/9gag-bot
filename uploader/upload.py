@@ -8,6 +8,10 @@ from selenium.common.exceptions import StaleElementReferenceException
 
 import time
 import os
+import pyautogui
+import random
+
+POST_TITLE = "Test " + str(random.randint(1, 10000))
 
 opts = Options()
 
@@ -66,11 +70,26 @@ for button in upload_button_candidates:
 
 file_upload_button_candidates = browser.find_elements_by_id('jsid-upload-file-btn')
 for file_upload_button in file_upload_button_candidates:
-    print(file_upload_button)
-    # file_upload_button.click()
+    # print(file_upload_button)
+    file_upload_button.click()
     path = os.getcwd() + '\\resources\\test.png'
-    print(path)
-    file_upload_button.send_keys(path)  # TODO: fix me
+    pyautogui.write(path)
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.press('enter')
+    #print(path)
+    #file_upload_button.send_keys(path)  # TODO: fix me
+
+
+# Add details
+title_field = WebDriverWait(browser, 5).until(
+        ec.presence_of_element_located((By.ID, 'jsid-upload-title'))
+)
+title_field.send_keys(POST_TITLE)
+
+next_button = browser.find_element_by_class_name('badge-upload-info-next-btn')
+next_button.click()
 
 # Close browser
 # browser.quit()

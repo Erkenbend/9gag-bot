@@ -1,3 +1,7 @@
 selenium
 MemePy
 pyquery
+pyautogui
+python-twitter
+pyyaml
+tweepy
