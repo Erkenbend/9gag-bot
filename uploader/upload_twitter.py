@@ -16,4 +16,5 @@ auth.set_access_token(twitter_oauth_credentials['OAUTH-ACCESS-TOKEN'], twitter_o
 api = tweepy.API(auth)
 
 # post stuff
-# api.update_status(status='Test test test 2')
+media_obj = api.media_upload("../meme.png")
+api.update_status(status='Test test test', media_ids=[media_obj.media_id])
